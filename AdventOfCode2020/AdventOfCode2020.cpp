@@ -1,56 +1,32 @@
+
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <list>
 #include <vector>
+#include <windows.h>
+#include "Day01.h"
+#include "Day02.h"
 using namespace std;
 
 int main()
 {
-    string line;
-    ifstream testInput("C:\\Users\\Tablespoon\\source\\repos\\AdventOfCode2020\\AdventOfCode2020\\Input\\Input01.txt");
-
+    char NPath[MAX_PATH];
+    GetCurrentDirectoryA(MAX_PATH, NPath);
+    string directory(NPath);
+    cout << "Current working directory: " << directory << endl;
+    ifstream testInput(directory + "\\Input\\Input02.txt");
+    //ifstream testInput(directory + "\\Test\\Test02.txt");
     int counter = 0;
-
-    vector<int> myVector;
+    vector<string> inputData;
+    string line;
 
     while (getline(testInput, line)) {
-        int value = stoi(line);
-        myVector.push_back(value);
-        counter += value;
-        string str = std::to_string(counter);
-        cout <<  + " " + str + "\n";
+        inputData.push_back(line);
     }
-
-    int numberOfEntries = myVector.size();
-
-    for (int i = 0; i < numberOfEntries; i++) {
-        int a = myVector.at(i);
-
-        for (int j = 0; j < numberOfEntries; j++) {
-            int b = myVector.at(j);
-
-            if (a + b == 2020) {
-                cout << std::to_string(a * b) + "\n";
-            }
-        }
-    }
-
-    for (int i = 0; i < numberOfEntries; i++) {
-        int a = myVector.at(i);
-
-        for (int j = 0; j < numberOfEntries; j++) {
-            int b = myVector.at(j);
-
-            for (int k = 0; k < numberOfEntries; k++) {
-                int c = myVector.at(k);
-
-                if (a + b + c == 2020) {
-                    cout << std::to_string(a * b * c) + "\n";
-                }
-            }
-        }
-    }
-
     testInput.close();
+
+    Day02 day;
+    day.data = inputData;
+    cout << std::to_string(day.PartOne()) << endl;
+    cout << std::to_string(day.PartTwo()) << endl;
 }
