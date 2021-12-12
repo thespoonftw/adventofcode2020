@@ -1,5 +1,2 @@
-﻿  Day02.cpp
-C:\Users\mikew\Desktop\adventofcode2020\AdventOfCode2020\Day02.cpp(21,37): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\mikew\Desktop\adventofcode2020\AdventOfCode2020\Day02.cpp(23,38): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\mikew\Desktop\adventofcode2020\AdventOfCode2020\Day02.cpp(26,37): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+﻿  AdventOfCode2020.cpp
   AdventOfCode2020.vcxproj -> C:\Users\mikew\Desktop\adventofcode2020\x64\Debug\AdventOfCode2020.exe

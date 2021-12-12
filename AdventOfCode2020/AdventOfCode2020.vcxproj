@@ -142,10 +142,12 @@
     <ClCompile Include="AdventOfCode2020.cpp" />
     <ClCompile Include="Day01.cpp" />
     <ClCompile Include="Day02.cpp" />
+    <ClCompile Include="Day03.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Day01.h" />
     <ClInclude Include="Day02.h" />
+    <ClInclude Include="Day03.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
