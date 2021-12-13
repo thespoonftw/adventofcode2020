@@ -4,19 +4,38 @@
 #include <string>
 #include <vector>
 #include <windows.h>
-#include "Day01.h"
-#include "Day02.h"
-#include "Day03.h"
+#include "DayBase.h"
 using namespace std;
 
-int main()
-{
+vector<string> GetData(string folder);
+
+int main() {
+    string dayNumber = "01";
+    Day01 day;
+
+    vector<string> testData = GetData("\\Day" + dayNumber + "\\Input" + dayNumber + ".txt");
+    vector<string> inputData = GetData("\\Day" + dayNumber + "\\Test" + dayNumber + ".txt");   
+    
+    cout << "Day" + dayNumber << endl;
+
+    day.data = testData;
+    cout << "Part 1 test: " + to_string(day.partOne()) << endl;
+
+    day.data = inputData;
+    cout << "Part 1 answer: " + to_string(day.partOne()) << endl;
+
+    day.data = testData;
+    cout << "Part 2 test: " + to_string(day.partTwo()) << endl;
+
+    day.data = inputData;
+    cout << "Part 2 answer: " + to_string(day.partTwo()) << endl;
+}
+
+vector<string> GetData(string folder) {
     char NPath[MAX_PATH];
     GetCurrentDirectoryA(MAX_PATH, NPath);
     string directory(NPath);
-    cout << "Current working directory: " << directory << endl;
-    ifstream testInput(directory + "\\Input\\Input03.txt");
-    //ifstream testInput(directory + "\\Test\\Test03.txt");
+    ifstream testInput(directory + folder);
     int counter = 0;
     vector<string> inputData;
     string line;
@@ -25,9 +44,6 @@ int main()
         inputData.push_back(line);
     }
     testInput.close();
-
-    Day03 day;
-    day.data = inputData;
-    cout << std::to_string(day.PartOne()) << endl;
-    cout << std::to_string(day.PartTwo()) << endl;
+    return inputData;
 }
+
